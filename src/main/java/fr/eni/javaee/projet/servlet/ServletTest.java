@@ -40,8 +40,7 @@ public class ServletTest extends HttpServlet {
 		Categorie cateTrouves = Manager.getInstance().rechercherAllCategorie();
 		
 		// afficher le resultat (les informations du repas)
-		System.out.println(cateTrouves);
-		
+		System.out.println(cateTrouves);	
 		
 	}
 
