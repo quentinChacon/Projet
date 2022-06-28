@@ -15,10 +15,10 @@ public class DAO {
 	
 
 	// ----------------------------------- SELECT
-			// ALL Aliments--------------------------------------------------------
+			// ALL Categorie ------------------------------------
 			private static final String SQL_SELECT_ALL_CATEGORIES = "SELECT no_categorie, libelle FROM CATEGORIES";
 			
-			private ConnectionProvider provider;
+			private ConnectionProvider provider = new ConnectionProvider();
 
 
 
