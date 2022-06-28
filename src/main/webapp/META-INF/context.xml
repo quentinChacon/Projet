@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource
+		name="poolEncheres"
+		
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		type="javax.sql.DataSource"
+		
+		url="jdbc:sqlserver://10.103.200.3;databaseName=ENCHERES"
+		username="user_applicatif"
+		password="Pa$$w0rd"
+		
+		initialSize="3"
+		maxTotal="15"
+		minIdle="2"
+		maxIdle="5"
+		maxWaitMillis="6000"
+		
+	/>
+</Context>
+
