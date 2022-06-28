@@ -48,6 +48,22 @@ public class Utilisateur {
 	
 	
 
+	@Override
+	public String toString() {
+		return "Utilisateur [pseudo=" + pseudo + ", nom=" + nom + ", prenom=" + prenom + "]";
+	}
+
+
+
+	public Utilisateur(String pseudo, String nom, String prenom) {
+		super();
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+
+
+
 	public int getNoUtilisateur() {
 		return noUtilisateur;
 	}

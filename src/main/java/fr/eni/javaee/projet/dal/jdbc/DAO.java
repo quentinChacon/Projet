@@ -6,16 +6,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import fr.eni.javaee.projet.bo.Categorie;
+import fr.eni.javaee.projet.bo.Utilisateur;
 
 public class DAO {
 
 	// ----------------------------------- SELECT
 	// ALL Categorie ------------------------------------
-	private static final String SQL_SELECT_ALL_CATEGORIES = "SELECT no_categorie, libelle FROM CATEGORIES";
+	private static final String SQL_SELECT_ALL_CATEGORIES = "SELECT pseudo, nom, prenom FROM UTILISATEURS";
 
 	private ConnectionProvider provider = new ConnectionProvider();
 
-	public Categorie selectAllCategorie() {
+	public Utilisateur selectAllUtilisateur() {
 
 		// 1. obtenir une connexion
 		Connection cnx = provider.getConnexion();
@@ -45,7 +46,7 @@ public class DAO {
 
 		// 5. Utiliser le resultat de l'appel... (soit un ResultSet, soit le nombre de
 		// lignes affectées)
-		Categorie categorieTrouve = null;
+		Utilisateur utilisateurTrouve = null;
 		try {
 			// Tant qu'il y a des lignes de résultat...
 			while (rs.next()) {
@@ -53,7 +54,7 @@ public class DAO {
 				// int noCategorie = rs.getInt("no_categorie");
 				// String libelle = rs.getString("libelle");
 
-				categorieTrouve = new Categorie(1, "Informatique");
+				utilisateurTrouve = new Utilisateur("elo", "LEQUELLEC", "Eloise");
 
 			}
 		} catch (SQLException sqle) {
@@ -62,7 +63,7 @@ public class DAO {
 			sqle.printStackTrace();
 		}
 
-		return categorieTrouve;
+		return utilisateurTrouve;
 	}
 
 	// ----------------------INSERT-------------------------------------
