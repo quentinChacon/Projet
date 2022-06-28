@@ -7,14 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import fr.eni.javaee.projet.bo.Categorie;
 import fr.eni.javaee.projet.bo.Utilisateur;
 
 public class DAO {
 
     // ----------------------------------- SELECT
     // ALL Categorie ------------------------------------
-    private static final String SQL_SELECT_ALL_UTILISATEUR = "SELECT pseudo, nom, prenom, email, telephone, rue, codePostal, ville FROM UTILISATEURS";
+    private static final String SQL_SELECT_ALL_UTILISATEUR = "SELECT pseudo, nom, prenom FROM UTILISATEURS";
 
     private ConnectionProvider provider = new ConnectionProvider();
 
