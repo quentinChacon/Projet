@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import fr.eni.javaee.projet.bo.Categories;
+import fr.eni.javaee.projet.bo.Categorie;
 
 
 
@@ -22,7 +22,7 @@ public class DAO {
 
 
 
-				public Categories selectAllCategorie() {
+				public Categorie selectAllCategorie() {
 					
 
 					// 1. obtenir une connexion
@@ -52,7 +52,7 @@ public class DAO {
 					}
 
 					// 5. Utiliser le resultat de l'appel... (soit un ResultSet, soit le nombre de lignes affectées)
-					Categories categorieTrouve = null;
+					Categorie categorieTrouve = null;
 					try {
 						// Tant qu'il y a des lignes de résultat...
 						while (rs.next()) {
@@ -61,7 +61,7 @@ public class DAO {
 							//String libelle = rs.getString("libelle");
 		
 
-							categorieTrouve = new Categories(1, "Informatique");
+							categorieTrouve = new Categorie(1, "Informatique");
 							
 						}
 					} catch (SQLException sqle) {

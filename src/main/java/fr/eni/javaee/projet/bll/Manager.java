@@ -1,6 +1,6 @@
 package fr.eni.javaee.projet.bll;
 
-import fr.eni.javaee.projet.bo.Categories;
+import fr.eni.javaee.projet.bo.Categorie;
 import fr.eni.javaee.projet.dal.jdbc.DAO;
 
 public class Manager {
@@ -25,8 +25,8 @@ private DAO dao;
 	
 	
 	//select all repas
-	public Categories rechercherAllCategorie () {
-		Categories resultat = null;
+	public Categorie rechercherAllCategorie () {
+		Categorie resultat = null;
 		
 		resultat = dao.selectAllCategorie();
 		
