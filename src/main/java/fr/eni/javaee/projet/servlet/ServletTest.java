@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.javaee.projet.bll.Manager;
-import fr.eni.javaee.projet.bo.Categorie;
+import fr.eni.javaee.projet.bo.Utilisateur;
 
 /**
  * Servlet implementation class ServletTest
@@ -37,10 +37,12 @@ public class ServletTest extends HttpServlet {
 
 		//SQL
 		//Recuperer les informations SQL du repas qui a l'id 1  
-		Categorie cateTrouves = Manager.getInstance().rechercherAllCategorie();
+		Utilisateur utilTrouves = Manager.getInstance().rechercherAllUtilisateur();
 		
 		// afficher le resultat (les informations du repas)
-		System.out.println(cateTrouves);	
+		System.out.println(utilTrouves);	
+		
+		
 		
 	}
 
