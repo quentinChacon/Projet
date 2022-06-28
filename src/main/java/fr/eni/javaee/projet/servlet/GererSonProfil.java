@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class GererSonProfil
  */
-@WebServlet(description = "l'utilisateur peut modifier les infos de son profil", urlPatterns = { "/modificationprofil" })
+
 public class GererSonProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

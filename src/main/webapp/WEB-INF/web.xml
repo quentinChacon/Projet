@@ -57,8 +57,47 @@
   
   
   
+  <servlet>
+  
+  <servlet-name>pagecreationcompte</servlet-name>
+  <jsp-file>/WEB-INF/jsp/creationprofil.jsp</jsp-file>
+  
+  </servlet>
+  
+  <servlet-mapping>
+  
+   <servlet-name>pagecreationcompte</servlet-name>
+   <url-pattern>/creationprofil</url-pattern>
+  
+  </servlet-mapping>
   
   
+  
+  <servlet>
+<servlet-name>profil</servlet-name>
+  <jsp-file>/WEB-INF/jsp/profil.jsp</jsp-file>
+  
+  </servlet>
+  
+  <servlet-mapping>
+  
+   <servlet-name>profil</servlet-name>
+   <url-pattern>/profil</url-pattern>
+  
+  </servlet-mapping>
+  
+  <servlet>
+<servlet-name>modifprofil</servlet-name>
+  <jsp-file>/WEB-INF/jsp/modificationprofil.jsp</jsp-file>
+  
+  </servlet>
+  
+  <servlet-mapping>
+  
+   <servlet-name>modifprofil</servlet-name>
+   <url-pattern>/modificationprofil</url-pattern>
+  
+  </servlet-mapping>
   
   
   

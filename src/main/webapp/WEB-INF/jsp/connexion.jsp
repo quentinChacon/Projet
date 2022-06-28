@@ -37,14 +37,13 @@ Connexion
 <a href ="">Mot de passe oublié</a>
 </div>
 
-
 <div>
-<button>
+
+<button onclick= "window.location.href ='/Projet-ENI/creationprofil'">
 Créer un compte
 </button>
+
 </div>
-
-
 
 
 </body>

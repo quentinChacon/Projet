@@ -17,11 +17,11 @@
 </div>
 
 <div>
-<a href = "">Mon profil</a>
+<a href = "/Projet-ENI/profil">Mon profil</a>
 </div>
 
 <div>
-<a href = "">Déconnection</a>
+<a href = "/Projet-ENI/encheres">Déconnection</a>
 </div>
 
 

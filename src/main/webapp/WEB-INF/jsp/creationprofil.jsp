@@ -9,6 +9,8 @@
 <body>
 <h1>Créer votre profile ici</h1>
 
+
+
 <div>
 Pseudo :<input type ="text" name = "pseudo"/>
 </div>
@@ -48,14 +50,21 @@ Mot de passe : <input type ="password" name = "motdepasse"/>
 <div>
 Confirmation :<input type ="password" name = "confirmation"/>
 </div>
+
+
+
+<form methode="post" action="${pageContext.request.contextPath}/accueil">
 <div>
 <button>
 Créer
 </button>
 </div>
+</form>
+
+
 
 <div>
-<button>
+<button onclick= "window.location.href ='/Projet-ENI/encheres'">
 Annuler
 </button>
 </div>

@@ -9,7 +9,7 @@
 <body>
 <h1>Bienvenue à Les Objects Sont Nos amis</h1>
 <div>
-<a href ="/Projet/connexion">s'inscrire - se connecter</a>
+<a href ="/Projet-ENI/connexion">s'inscrire - se connecter</a>
 
 
 

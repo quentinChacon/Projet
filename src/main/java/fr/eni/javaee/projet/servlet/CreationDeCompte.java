@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CreationDeCompte
  */
-@WebServlet(description = "L'utilisateur créer un profil", urlPatterns = { "/creationprofil" })
 public class CreationDeCompte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -18,7 +17,7 @@ public class CreationDeCompte extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		doGet(request, response);
+		getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
 	}
 
 }

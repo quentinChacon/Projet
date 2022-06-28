@@ -14,7 +14,7 @@ Pseudo :
 <br>
 Nom : 
 <br>
-Prenom : 
+Prenom : ${utilisateur.prenom}
 <br>
 Email : 
 <br>
@@ -28,16 +28,10 @@ Ville :
 </div>
 
 <div>
-<button>
+<button onclick= "window.location.href ='/Projet-ENI/modificationprofil'">
 Modifier
 </button>
 </div>
-
-
-
-
-
-
 
 </body>
 </html>
