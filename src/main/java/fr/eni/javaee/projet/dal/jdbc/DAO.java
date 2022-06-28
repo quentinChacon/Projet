@@ -1,13 +1,11 @@
 package fr.eni.javaee.projet.dal.jdbc;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import fr.eni.javaee.projet.bo.Categorie;
-import fr.eni.javaee.projet.bo.Utilisateur;
 
 public class DAO {
 

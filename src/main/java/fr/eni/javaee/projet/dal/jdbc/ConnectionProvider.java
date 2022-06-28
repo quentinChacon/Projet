@@ -50,7 +50,6 @@ public class ConnectionProvider {
 			}
 
 
-
 			/**
 			 * 
 			 * @return une connexion a la base de donné

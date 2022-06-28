@@ -32,8 +32,9 @@ private DAO dao;
 		
 		return resultat;
 		
-	}
 		
+	}
+
 
 	
 
