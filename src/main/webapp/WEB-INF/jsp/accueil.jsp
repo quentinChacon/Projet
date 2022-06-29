@@ -21,7 +21,7 @@
 </div>
 
 <div>
-<a href = "/Projet-ENI/encheres">Déconnection</a>
+<a href = "/Projet-ENI/encheres">Déconnexion</a>
 </div>
 
 

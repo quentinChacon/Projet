@@ -47,24 +47,31 @@ public class Utilisateur {
 	
 	
 
-	public Utilisateur () {
-		super() ;
+
+
+	
+
+
+	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
+			String codePostal, String ville) {
+		super();
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
 	}
+
 
 
 
 	@Override
 	public String toString() {
-		return "Utilisateur [pseudo=" + pseudo + ", nom=" + nom + ", prenom=" + prenom + "]";
-	}
-
-
-
-	public Utilisateur(String pseudo, String nom, String prenom) {
-		super();
-		this.pseudo = pseudo;
-		this.nom = nom;
-		this.prenom = prenom;
+		return "Utilisateur [pseudo=" + pseudo + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
+				+ ", telephone=" + telephone + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville + "]";
 	}
 
 
@@ -164,6 +171,9 @@ public class Utilisateur {
 	public void setAdministrateur(byte administrateur) {
 		this.administrateur = administrateur;
 	}
+
+
+
 	
 	
 

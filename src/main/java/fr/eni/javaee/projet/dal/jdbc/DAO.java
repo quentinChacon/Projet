@@ -54,7 +54,7 @@ public class DAO {
 				// int noCategorie = rs.getInt("no_categorie");
 				// String libelle = rs.getString("libelle");
 
-				utilisateurTrouve = new Utilisateur("elo", "LEQUELLEC", "Eloise");
+				//utilisateurTrouve = new Utilisateur("elo", "LEQUELLEC", "Eloise");
 
 			}
 		} catch (SQLException sqle) {
