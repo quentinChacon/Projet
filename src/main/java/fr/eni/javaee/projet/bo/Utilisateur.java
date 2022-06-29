@@ -45,11 +45,7 @@ public class Utilisateur {
 	
 	}
 	
-	
 
-
-
-	
 
 
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
@@ -66,8 +62,6 @@ public class Utilisateur {
 	}
 
 
-
-
 	public Utilisateur () {
 		// TODO Auto-generated constructor stub
 	}
@@ -79,13 +73,22 @@ public class Utilisateur {
 
 
 
-	@Override
-	public String toString() {
-		return "Utilisateur [pseudo=" + pseudo + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
-				+ ", telephone=" + telephone + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville + "]";
+	public Utilisateur(String pseudo, String motDePasse) {
+		super();
+		this.pseudo = pseudo;
+		this.motDePasse = motDePasse;
+
 	}
 
 
+	
+	
+	
+
+	@Override
+	public String toString() {
+		return "Utilisateur [pseudo=" + pseudo + ", motDePasse=" + motDePasse + "]";
+	}
 
 	public int getNoUtilisateur() {
 		return noUtilisateur;
@@ -182,6 +185,16 @@ public class Utilisateur {
 	public void setAdministrateur(byte administrateur) {
 		this.administrateur = administrateur;
 	}
+
+
+
+
+
+
+
+
+
+
 
 
 

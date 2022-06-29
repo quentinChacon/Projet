@@ -5,6 +5,8 @@ import java.sql.PreparedStatement ;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.eni.javaee.projet.bo.Utilisateur;
 
@@ -102,6 +104,84 @@ public class UtilisateurDAOJdbcImpl  implements UtilisateurDAO
     
     
     
+
+    private static final String SQL_SELECT_CONNEXION_UTILISATEUR = "SELECT pseudo, mot_de_passe FROM UTILISATEURS";
+
+
+    public List<Utilisateur> selectCoUtilisateur(String pUtilisateur) {
+
+    	List<Utilisateur> utilisateurListe = new ArrayList<Utilisateur>();
+    	
+        // 1. obtenir une connexion
+        Connection cnx = provider.getConnexion();
+
+        // 2. Obtenir un objet de commande
+        Statement requete = null;
+        try {
+            requete = cnx.createStatement();
+
+        } catch (SQLException sqle) {
+            // TODO traitement d'exception ?
+
+            System.err.println("Probleme pour obtenir le Statement");
+            sqle.printStackTrace();
+        }
+
+        // 4. Déclencher l'appel à la BdD (BdD = Base de Donnes)
+        ResultSet rs = null;
+        try {
+            rs = requete.executeQuery(SQL_SELECT_CONNEXION_UTILISATEUR);
+
+        } catch (SQLException sqle) {
+
+            System.err.println("Probleme lors de l'exécution de la requete.");
+            sqle.printStackTrace();
+        }
+
+        // 5. Utiliser le resultat de l'appel... (soit un ResultSet, soit le nombre de
+        // lignes affectées)
+        
+        
+        try {
+        	
+        	
+        	 String pseudo ; 
+        	 String motDePasse ; 
+        	
+            // Tant qu'il y a des lignes de résultat...
+            while (rs.next()) {
+                // ... construire le nouvel article à partir desinformations de la ligne...
+               
+            	pseudo = rs.getString("pseudo");
+            	motDePasse = rs.getString("mot_de_passe");
+           
+            	utilisateurListe.add(new Utilisateur( pseudo, motDePasse)) ;
+
+            }
+            
+            cnx.close();
+            
+        } catch (SQLException sqle) {
+
+            System.err.println("Probleme lors de la lecture du resultat de la requete.");
+            sqle.printStackTrace();
+        }
+
+        return utilisateurListe;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 
     // ----------------------INSERT-------------------------------------
 

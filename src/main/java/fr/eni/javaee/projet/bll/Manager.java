@@ -1,7 +1,11 @@
 package fr.eni.javaee.projet.bll;
 
+
+import java.util.List;
+
 import fr.eni.javaee.projet.bo.Utilisateur;
 import fr.eni.javaee.projet.dal.jdbc.UtilisateurDAOJdbcImpl;
+
 
 public class Manager {
 	
@@ -24,7 +28,7 @@ private UtilisateurDAOJdbcImpl dao;
 	}
 	
 	
-	//select all repas
+	//select infos profil utilisateur
 	public Utilisateur rechercherAllUtilisateur () {
 		Utilisateur resultat = null;
 		
@@ -32,6 +36,15 @@ private UtilisateurDAOJdbcImpl dao;
 		
 		return resultat;
 		
+	}
+
+	//select infos profil utilisateur
+	public List<Utilisateur> selectCoUtilisateur (String pConnexionUtilisateur) {
+		List<Utilisateur> resultat = null;
+		
+		resultat = dao.selectCoUtilisateur(pConnexionUtilisateur);
+		
+		return resultat;
 		
 	}
 
