@@ -1,19 +1,20 @@
 package fr.eni.javaee.projet.bll;
 
-import fr.eni.javaee.projet.bo.Categorie;
+
 import fr.eni.javaee.projet.bo.Utilisateur;
-import fr.eni.javaee.projet.dal.jdbc.DAO;
+import fr.eni.javaee.projet.dal.jdbc.UtilisateurDAOJdbcImpl;
+
 
 public class Manager {
 	
-private DAO dao;
+private UtilisateurDAOJdbcImpl dao;
 	
 	//car Singleton
 	private static Manager instance;
 
 	//priver car Singleton
 	private Manager() {
-		dao = new DAO();
+		dao = new UtilisateurDAOJdbcImpl();
 	}
 	
 	//car Singleton

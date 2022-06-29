@@ -7,9 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 import fr.eni.javaee.projet.bo.Utilisateur;
 
 public class DAO {
+
 
     // ----------------------------------- SELECT
     // ALL Categorie ------------------------------------
@@ -17,7 +19,8 @@ public class DAO {
 
     private ConnectionProvider provider = new ConnectionProvider();
 
-    public Utilisateur selectAllUtilisateur() {
+
+	public Utilisateur selectAllUtilisateur() {
 
         // 1. obtenir une connexion
         Connection cnx = provider.getConnexion();
@@ -45,9 +48,10 @@ public class DAO {
             sqle.printStackTrace();
         }
 
-        // 5. Utiliser le resultat de l'appel... (soit un ResultSet, soit le nombre de
-        // lignes affectées)
-        Utilisateur utilisateurTrouve = null;
+
+		// 5. Utiliser le resultat de l'appel... (soit un ResultSet, soit le nombre de
+		// lignes affectées)
+		Utilisateur utilisateurTrouve = null;
 
 
         try {
@@ -68,8 +72,6 @@ public class DAO {
 
         return utilisateurTrouve;
     }
-
-
 
 
 
