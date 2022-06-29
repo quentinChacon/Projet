@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
 <%@page import="fr.eni.javaee.projet.bo.Utilisateur"%>    
     
 <!DOCTYPE html>
