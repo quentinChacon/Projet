@@ -28,8 +28,10 @@ public class ServletTest extends HttpServlet {
 		
 		// afficher le resultat (les informations du repas)
 		System.out.println(utilTrouves);	
+
 		request.setAttribute("profilutilisateur", utilTrouves);
 		getServletContext().getRequestDispatcher("/WEB-INF/jsp/profil.jsp").forward(request, response);
+
 		
 		
 		

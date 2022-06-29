@@ -55,8 +55,7 @@ public class Utilisateur {
 		this.prenom = prenom;
 	}
 
-	
-	
+
 
 
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
@@ -73,10 +72,6 @@ public class Utilisateur {
 	}
 
 
-
-
-	
-
 	public Utilisateur(String pseudo, String motDePasse) {
 		super();
 		this.pseudo = pseudo;
@@ -92,8 +87,6 @@ public class Utilisateur {
 	public String toString() {
 		return "Utilisateur [pseudo=" + pseudo + ", motDePasse=" + motDePasse + "]";
 	}
-
-
 
 	public int getNoUtilisateur() {
 		return noUtilisateur;
@@ -190,6 +183,16 @@ public class Utilisateur {
 	public void setAdministrateur(byte administrateur) {
 		this.administrateur = administrateur;
 	}
+
+
+
+
+
+
+
+
+
+
 
 
 

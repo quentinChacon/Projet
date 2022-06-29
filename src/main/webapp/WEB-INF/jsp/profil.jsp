@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
 <%@page import="fr.eni.javaee.projet.bo.Utilisateur"%>    
     
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,21 +17,21 @@
 <h1>Mon profil :</h1>
 
 <div>
-Pseudo : ${profilutilisateur.pseudo} 
+Pseudo :
 <br>
-Nom : ${profilutilisateur.nom} 
+Nom : 
 <br>
-Prenom : ${profilutilisateur.prenom} 
+Prenom : ${utilisateur.prenom}
 <br>
-Email : ${profilutilisateur.email} 
+Email : 
 <br>
-Telephone : ${profilutilisateur.telephone} 
+Telephone : 
 <br>
-Rue : ${profilutilisateur.rue} 
+Rue : 
 <br>
-Code Postal : ${profilutilisateur.codePostal} 
+Code Postal : 
 <br>
-Ville : ${profilutilisateur.ville} 
+Ville :
 </div>
 
 <div>
