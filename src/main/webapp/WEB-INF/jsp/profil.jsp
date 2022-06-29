@@ -13,8 +13,29 @@
 <body>
 <h1>Mon profil :</h1>
 
+
+<tbody>
+
+
+<tr>
+
+
+
+<td>${utilisateur.pseudo}</td>
+
+
+</tr>
+
+
+
+
+
+</tbody>
+
 <div>
-Pseudo : ${profilutilisateur.pseudo} 
+Pseudo :
+</div>
+ 
 <br>
 Nom : ${profilutilisateur.nom} 
 <br>
