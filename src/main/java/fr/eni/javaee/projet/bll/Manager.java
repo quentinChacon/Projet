@@ -26,7 +26,7 @@ private UtilisateurDAOJdbcImpl dao;
 	}
 	
 	
-	//select all repas
+	//select infos profil utilisateur
 	public Utilisateur rechercherAllUtilisateur () {
 		Utilisateur resultat = null;
 		
@@ -34,10 +34,17 @@ private UtilisateurDAOJdbcImpl dao;
 		
 		return resultat;
 		
-		
 	}
 
-	
+	//select infos profil utilisateur
+	public Utilisateur selectCoUtilisateur () {
+		Utilisateur resultat = null;
+		
+		resultat = dao.selectCoUtilisateur();
+		
+		return resultat;
+		
+	}
 
 
 	
