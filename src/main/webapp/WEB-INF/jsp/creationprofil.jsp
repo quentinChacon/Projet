@@ -4,64 +4,86 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ajouter un utilisateur</title>
 </head>
 <body>
 <h1>Créer votre profile ici</h1>
 
+<form method="post" action="${pageContext.request.contextPath}/creationcompteservlet">
 
 
-<div>
-Pseudo :<input type ="text" name = "pseudo"/>
-</div>
 
 <div>
-Nom :<input type ="text" name = "nom"/>
-</div>
-
-<div>
-Prenom :<input type ="text" name = "prenom"/>
-</div>
-
-<div>
-Email :<input type ="text" name = "email"/>
-</div>
-
-<div>
-Telephone :<input type ="tel" name = "telephone"/>
-</div>
-
-<div>
-Code Postal :<input type ="text" name = "codepostal"/>
-</div>
-
-<div>
-Rue :<input type ="text" name = "rue"/>
-</div>
-
-<div>
-Ville :<input type ="text" name = "ville"/>
-</div>
-
-<div>
-Mot de passe : <input type ="password" name = "motdepasse"/>
-</div>
-
-<div>
-Confirmation :<input type ="password" name = "confirmation"/>
+Pseudo :<input type ="text" name = "pseudo" value="${param.pseudo}" required/>
 </div>
 
 
 
-<form methode="post" action="${pageContext.request.contextPath}/accueil">
+<div>
+Nom :<input type ="text" name = "nom" value="${param.nom }" required/>
+</div>
+
+
+
+<div>
+Prenom :<input type ="text" name = "prenom" value="${param.prenom }" required/>
+</div>
+
+
+
+<div>
+Email :<input type ="text" name = "email" value="${param.email }"required/>
+</div>
+
+
+
+<div>
+Telephone :<input type ="tel" name = "telephone" value="${param.telephone }" required/>
+</div>
+
+
+
+<div>
+Code Postal :<input type ="text" name = "codepostal" value="${param.codePostal }" required/>
+</div>
+
+
+
+
+<div>
+Rue :<input type ="text" name = "rue" value="${param.rue }" required/>
+</div>
+
+
+
+<div>
+Ville :<input type ="text" name = "ville" value="${param.ville }" required/>
+</div>
+
+
+
+<div>
+Mot de passe : <input type ="password" name = "motdepasse" value="${param.motDePasse }" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"/>
+</div>
+
+
+
+<div>
+Confirmation :<input type ="password" name = "confirmation" value="${param.motDePasse }" required/>
+</div>
+
+
+
+
+
+
 <div>
 <button>
 Créer
 </button>
 </div>
+
 </form>
-
-
 
 <div>
 <button onclick= "window.location.href ='/Projet-ENI/encheres'">

@@ -1,6 +1,7 @@
 package fr.eni.javaee.projet.dal.jdbc;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement ;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,8 +10,7 @@ import java.util.List;
 
 import fr.eni.javaee.projet.bo.Utilisateur;
 
-public class UtilisateurDAOJdbcImpl 
-// implements UtilisateurDAO
+public class UtilisateurDAOJdbcImpl  implements UtilisateurDAO
 {
 	
 
@@ -185,7 +185,88 @@ public class UtilisateurDAOJdbcImpl
 
     // ----------------------INSERT-------------------------------------
 
-    private static final String SQL_INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS (noUtilisateur, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, credit, administrateur) VALUES (no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur)";
+    private static final String SQL_INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
+    /**
+     * Ajoute un nouvel article en base de données. Si l'insertion se passe bien,
+     * l'identifiant de pNouvelArticle est mis à jour avec la valeur générée par la
+     * base de données.
+     * 
+     * @param pNouvelArticle le nouvel Article.
+     */
+    public void insert(Utilisateur pNouvelUtilisateur) {
+
+	    System.out.println(pNouvelUtilisateur) ;
+	    //s'il n'y a pas de parametre, ca sert a rien de continuer.
+	    
+	    if (pNouvelUtilisateur == null) {
+		    return ;
+	    }
+	    
+        // 1. obtenir une connexion
+       
+
+        try ( Connection cnx = provider.getConnexion())
+{
+	try
+	{
+
+            PreparedStatement requete = cnx.prepareStatement(SQL_INSERT_UTILISATEUR, PreparedStatement.RETURN_GENERATED_KEYS);
+
+            // PAramétrer le PreparedStatement
+            
+            requete.setString(1, pNouvelUtilisateur.getPseudo());
+            requete.setString(2, pNouvelUtilisateur.getNom());
+            requete.setString(3, pNouvelUtilisateur.getPrenom());
+            requete.setString(4, pNouvelUtilisateur.getEmail());
+            requete.setString(5, pNouvelUtilisateur.getTelephone());
+            requete.setString(6, pNouvelUtilisateur.getRue());
+            requete.setString(7, pNouvelUtilisateur.getCodePostal());
+            requete.setString(8, pNouvelUtilisateur.getVille());
+            requete.setString(9, pNouvelUtilisateur.getMotDePasse());
+            requete.setInt(10, pNouvelUtilisateur.getCredit());
+            requete.setBoolean(11, false);
+            
+            // Executer la requete
+           requete.executeUpdate();
+
+            // Récupération de la clef générée
+            
+                ResultSet clef = requete.getGeneratedKeys();
+               if ( clef.next()) 
+               {
+
+                // Mise à jour de l'article passé en paramètre
+                pNouvelUtilisateur.setNoUtilisateur(clef.getInt(1)); 
+            }
+
+            clef.close();
+            requete.close();
+
+            // Libérer les ressources : fermer la connexion.
+            cnx.close();
+
+        }
+	catch (Exception sqle) {
+            // journaliser (pour faciliter le travail des exploitant
+       
+            sqle.printStackTrace();
+
+         // Il y a un probleme ==> Transaction annulée
+            
+             cnx.rollback();
+        }
+           
+        }
+
+	catch (Exception sqle)
+	{
+		sqle.printStackTrace ();
+	}
+
+        
+        
+}
+    
     
 }
