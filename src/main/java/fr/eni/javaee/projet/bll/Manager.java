@@ -1,6 +1,8 @@
 package fr.eni.javaee.projet.bll;
 
 
+import java.util.List;
+
 import fr.eni.javaee.projet.bo.Utilisateur;
 import fr.eni.javaee.projet.dal.jdbc.UtilisateurDAOJdbcImpl;
 
@@ -37,10 +39,10 @@ private UtilisateurDAOJdbcImpl dao;
 	}
 
 	//select infos profil utilisateur
-	public Utilisateur selectCoUtilisateur () {
-		Utilisateur resultat = null;
+	public List<Utilisateur> selectCoUtilisateur (String pConnexionUtilisateur) {
+		List<Utilisateur> resultat = null;
 		
-		resultat = dao.selectCoUtilisateur();
+		resultat = dao.selectCoUtilisateur(pConnexionUtilisateur);
 		
 		return resultat;
 		
