@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.eni.javaee.projet.bo.Utilisateur;
 
@@ -105,8 +107,10 @@ public class UtilisateurDAOJdbcImpl
     private static final String SQL_SELECT_CONNEXION_UTILISATEUR = "SELECT pseudo, mot_de_passe FROM UTILISATEURS";
 
 
-    public Utilisateur selectCoUtilisateur() {
+    public List<Utilisateur> selectCoUtilisateur(String pUtilisateur) {
 
+    	List<Utilisateur> utilisateurListe = new ArrayList<Utilisateur>();
+    	
         // 1. obtenir une connexion
         Connection cnx = provider.getConnexion();
 
@@ -135,7 +139,6 @@ public class UtilisateurDAOJdbcImpl
 
         // 5. Utiliser le resultat de l'appel... (soit un ResultSet, soit le nombre de
         // lignes affectées)
-        Utilisateur connexionUtilTrouvee = null;
         
         
         try {
@@ -151,7 +154,7 @@ public class UtilisateurDAOJdbcImpl
             	pseudo = rs.getString("pseudo");
             	motDePasse = rs.getString("mot_de_passe");
            
-            	connexionUtilTrouvee = new Utilisateur( pseudo, motDePasse) ;
+            	utilisateurListe.add(new Utilisateur( pseudo, motDePasse)) ;
 
             }
             
@@ -163,7 +166,7 @@ public class UtilisateurDAOJdbcImpl
             sqle.printStackTrace();
         }
 
-        return connexionUtilTrouvee;
+        return utilisateurListe;
     }
     
     

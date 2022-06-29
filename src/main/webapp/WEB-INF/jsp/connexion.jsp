@@ -13,11 +13,7 @@
 </head>
 <body>
 
-<%String utilisateur = (String)request.getAttribute("pseudo"); %>
-
-
 <h1>Connexion</h1>
-
 
 <form method="post" action="${pageContext.request.contextPath}/accueil">
 
@@ -36,7 +32,6 @@
 	<p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
 
 </form>
-
 
 
 

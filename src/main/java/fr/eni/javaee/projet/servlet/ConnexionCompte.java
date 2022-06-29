@@ -1,6 +1,8 @@
 package fr.eni.javaee.projet.servlet ;
 
 import java.io.IOException ;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException ;
@@ -19,7 +21,6 @@ import fr.eni.javaee.projet.bo.Utilisateur;
 // nom de la route /accueil
 public class ConnexionCompte extends HttpServlet {
 	private static final long serialVersionUID = 1L ;
-
 	
 	protected void doGet (HttpServletRequest request , HttpServletResponse response)
 			throws ServletException , IOException {
@@ -57,10 +58,11 @@ public class ConnexionCompte extends HttpServlet {
     	
     	
     	// récupération du paramètre HTTP issu du formulaire
+    	
     			String choice = request.getParameter("pseudo");
     			String password = request.getParameter("motdepasse");
     			
-    			Utilisateur  co = new Utilisateur(choice, password);
+    			Utilisateur co = new Utilisateur(choice, password);
     			
     			// déposer l'information dans un contexte de partage
     			request.setAttribute("pseudo", co);
@@ -68,20 +70,39 @@ public class ConnexionCompte extends HttpServlet {
     			System.out.println(co);
     	
     			//SQL
-    			//Recuperer les informations SQL du repas qui a l'id 1  
-    			Utilisateur connexion = Manager.getInstance().selectCoUtilisateur();
+    			//Recuperer les informations SQL du repas qui a l'id 
+    			List<Utilisateur> connexion = Manager.getInstance().selectCoUtilisateur("pseudo");
     			
-    			// afficher le resultat (les informations du repas)
+    			verifierConnexion(choice, password);
+    			
+    			// afficher le resultat 
     			System.out.println(connexion);	
     			request.setAttribute("connexionUtilisateur", connexion);
     			getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
-    			
     	
+    }
+    
+    
+	private void verifierConnexion(String choice, String password) {
+    	
+    	List<Utilisateur> connexion = Manager.getInstance().selectCoUtilisateur("pseudo"); ; 
+    	
+    	for(Utilisateur valeurTrouvee : connexion) {
+    		if(choice.equals(valeurTrouvee.getPseudo())&& password.equals(valeurTrouvee.getMotDePasse())) {
+    			
+    			System.out.println("tu es connectée");
+    		}
+    		else {
+    			System.out.println("l'identifiant ou le mot de passe est faux");
+    		}
+    		
+    	}
     	
     	
     }
-	
-	
+    
+
+
 
 
 }
