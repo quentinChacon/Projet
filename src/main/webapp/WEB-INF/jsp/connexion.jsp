@@ -29,8 +29,6 @@
                 
 	<button type="submit">Connexion</button>
 
-	<p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
-
 </form>
 
 
