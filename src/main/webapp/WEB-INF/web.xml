@@ -73,18 +73,20 @@
   
   
   
-  <servlet>
-<servlet-name>profil</servlet-name>
-  <jsp-file>/WEB-INF/jsp/profil.jsp</jsp-file>
   
+<servlet>
+<servlet-name>modificationDuProfil</servlet-name>
+  <servlet-class>fr.eni.javaee.projet.servlet.GererSonProfil</servlet-class>
   </servlet>
   
   <servlet-mapping>
   
-   <servlet-name>profil</servlet-name>
+   <servlet-name>modificationDuProfil</servlet-name>
    <url-pattern>/profil</url-pattern>
   
   </servlet-mapping>
+  
+  
   
   <servlet>
 <servlet-name>modifprofil</servlet-name>

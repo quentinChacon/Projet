@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse ;
 import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.projet.bll.Manager;
+import fr.eni.javaee.projet.bll.UtilisateurManager;
 import fr.eni.javaee.projet.bo.Utilisateur;
 
 
@@ -37,7 +38,7 @@ public class ConnexionCompte extends HttpServlet {
     	
     			String choice = request.getParameter("pseudo");
     			String password = request.getParameter("motdepasse");
-    			Utilisateur session = new Utilisateur(); 
+    			//Utilisateur session = new Utilisateur(); 
     			
     			Utilisateur co = new Utilisateur(choice, password);
     			
@@ -50,11 +51,15 @@ public class ConnexionCompte extends HttpServlet {
     			//Recuperer les informations SQL du repas qui a l'id 
     			List<Utilisateur> listeDesUtilisateurs = Manager.getInstance().selectCoUtilisateur("pseudo");
     			
+    			
+    			
     			if (verifierConnexion(choice, password)) {
-    				request.getSession().setAttribute("id", session );
-    				request.getSession().setMaxInactiveInterval(60);
     				
-        			getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
+        			HttpSession donneesUtilisateur = request.getSession();
+        			request.getSession().setAttribute("id", UtilisateurManager.findUtilisateurConnecte(choice, listeDesUtilisateurs) );
+    				request.getSession().setMaxInactiveInterval(300);
+    				
+    				getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
     			} else {
     				
         			getServletContext().getRequestDispatcher("/WEB-INF/jsp/connexion.jsp").forward(request, response);

@@ -6,6 +6,7 @@ import fr.eni.javaee.projet.bo.Utilisateur ;
 public interface UtilisateurDAO {
 
 	public void insert(Utilisateur user);
+	public Utilisateur donneesUtilisateur(Utilisateur user);
 	
 	
 }

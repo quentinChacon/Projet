@@ -48,6 +48,14 @@ private UtilisateurDAOJdbcImpl dao;
 		
 	}
 
+	public Utilisateur infosUtilisateur() {
+Utilisateur resultat = null;
+		
+		resultat = dao.selectAllUtilisateur();
+		
+		return resultat;
+	}
+
 
 	
 
