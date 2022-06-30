@@ -4,10 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@page import="fr.eni.javaee.projet.bo.Utilisateur"%>    
     
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
-<%@page import="fr.eni.javaee.projet.bo.Utilisateur"%>    
-    
 <!DOCTYPE html>
 <html>
 <head>
