@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet ;
 import javax.servlet.http.HttpServletRequest ;
 import javax.servlet.http.HttpServletResponse ;
 
+
+
 import fr.eni.javaee.projet.bll.Manager;
 import fr.eni.javaee.projet.bo.Utilisateur;
 
@@ -31,33 +33,12 @@ public class ConnexionCompte extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-    	/*
-        // Création ou récupération de la session 
-        HttpSession session = request.getSession();
-
-        // Mise en session d'une chaîne de caractères 
-        String exemple = "abc";
-        session.setAttribute( "chaine", exemple );
-
-        // Récupération de l'objet depuis la session 
-        String chaine = (String) session.getAttribute( "chaine" );
-
-
-        Utilisateur connexionTrouvee = Manager.getInstance().rechercherAllUtilisateur();
-
-        // afficher le resultat (les informations du repas)
-        System.out.println(connexionTrouvee);
-
-        request.setAttribute("connexionUtilisateur", connexionTrouvee);
-
-        getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
-   */
-    	
-    	
+	
     	// récupération du paramètre HTTP issu du formulaire
     	
     			String choice = request.getParameter("pseudo");
     			String password = request.getParameter("motdepasse");
+    			Utilisateur session = new Utilisateur(); 
     			
     			Utilisateur co = new Utilisateur(choice, password);
     			
@@ -68,31 +49,41 @@ public class ConnexionCompte extends HttpServlet {
     	
     			//SQL
     			//Recuperer les informations SQL du repas qui a l'id 
-    			List<Utilisateur> connexion = Manager.getInstance().selectCoUtilisateur("pseudo");
+    			List<Utilisateur> listeDesUtilisateurs = Manager.getInstance().selectCoUtilisateur("pseudo");
     			
-    			verifierConnexion(choice, password);
+    			if (verifierConnexion(choice, password)) {
+    				request.getSession().setAttribute("id", session );
+    				request.getSession().setMaxInactiveInterval(60);
+    				
+        			getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
+    			} else {
+    				
+        			getServletContext().getRequestDispatcher("/WEB-INF/jsp/connexion.jsp").forward(request, response);
+    			}
     			
-    			// afficher le resultat 
-    			System.out.println(connexion);	
-    			request.setAttribute("connexionUtilisateur", connexion);
-    			getServletContext().getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
+    			
+    			
     	
     }
     
-	private void verifierConnexion(String choice, String password) {
+ 
+    
+	private boolean verifierConnexion(String choice, String password) {
     	
-    	List<Utilisateur> connexion = Manager.getInstance().selectCoUtilisateur("pseudo"); ; 
+		List<Utilisateur> listeDesUtilisateurs = Manager.getInstance().selectCoUtilisateur("pseudo");
     	
-    	for(Utilisateur valeurTrouvee : connexion) {
+    	for(Utilisateur valeurTrouvee : listeDesUtilisateurs) {
     		if(choice.equals(valeurTrouvee.getPseudo())&& password.equals(valeurTrouvee.getMotDePasse())) {
     			
     			System.out.println("tu es connectée");
-    		}
-    		else {
-    			System.out.println("l'identifiant ou le mot de passe est faux");
+    			return true ; 
     		}
     		
     	}
+    	System.out.println("tu ne peux pas te connecter");
+		return false;
+		
+		
 
     	
     	

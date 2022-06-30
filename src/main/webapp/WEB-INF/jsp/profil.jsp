@@ -31,7 +31,7 @@
 
 
 
-<td>${utilisateur.pseudo}</td>
+<td>${id.pseudo}</td>
 
 
 </tr>

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.javaee.projet.bll.Manager;
+import fr.eni.javaee.projet.bo.Utilisateur;
+
 /**
  * Servlet implementation class GererSonProfil
  */
@@ -22,7 +25,15 @@ public class GererSonProfil extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//SQL
+		//Recuperer les informations SQL du repas qui a l'id 1  
+		Utilisateur utilTrouves = Manager.getInstance().rechercherAllUtilisateur();
+		
+		// afficher le resultat (les informations du repas)
+		System.out.println(utilTrouves);	
+
+		request.setAttribute("id", utilTrouves);
+		getServletContext().getRequestDispatcher("/WEB-INF/jsp/profil.jsp").forward(request, response);
 	}
 
 	
