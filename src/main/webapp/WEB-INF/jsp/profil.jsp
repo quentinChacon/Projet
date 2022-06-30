@@ -1,19 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<<<<<<< HEAD
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@page import="fr.eni.javaee.projet.bo.Utilisateur"%>    
     
-=======
-
-    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-
-<%@page import="fr.eni.javaee.projet.bo.Utilisateur"%>    
-    
-
->>>>>>> branch 'main' of https://github.com/quentinChacon/Projet.git
 <!DOCTYPE html>
 <html>
 <head>

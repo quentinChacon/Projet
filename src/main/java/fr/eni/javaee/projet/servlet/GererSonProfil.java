@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.javaee.projet.bll.Manager;
 import fr.eni.javaee.projet.bo.Utilisateur;
@@ -25,6 +26,7 @@ public class GererSonProfil extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		//SQL
 		//Recuperer les informations SQL du repas qui a l'id 1  
 		Utilisateur utilTrouves = Manager.getInstance().rechercherAllUtilisateur();
@@ -39,13 +41,10 @@ public class GererSonProfil extends HttpServlet {
 	
 	
 	
-	
-	
-	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
+	
+	        
 	}
 
 }
