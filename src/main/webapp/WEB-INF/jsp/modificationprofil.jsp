@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<a href="/Projet-ENI/accueil"><img src="css/logoProjet.png"/></a>
+<a class="logo" href="/Projet-ENI/accueil"><img src="css/logoProjet.png"/></a>
 
 	<div>
 		Pseudo :<input type="text" name="pseudo" />

@@ -16,7 +16,7 @@
 <body>
 <h1>Mon profil :</h1>
 
-<a href="/Projet-ENI/accueil"><img src="css/logoProjet.png"/></a>
+<a href="/Projet-ENI/accueil"><img class="logo" src="css/logoProjet.png"/></a>
 
 <div>
 Pseudo : ${profilutilisateur.pseudo}

@@ -16,9 +16,9 @@
 </head>
 <body>
 
-<img src="css/logoProjet.png"/>
+<img class="logo" src="css/logoProjet.png"/>
 
-	<h1>Connexion</h1>
+	<h1 class="connexionSite">Connexion</h1>
 
 	<form method="post" action="${pageContext.request.contextPath}/accueil">
 

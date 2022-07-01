@@ -1,16 +1,45 @@
 @charset "UTF-8";
 
+@font-face {
+  font-family: KAGE_DEMO_FONT-Black;
+  src: url(KAGE_DEMO_FONT-Black.otf);
+  
+}
+
 h1 {
 	text-align: center;
 }
 
-img {
-	border-radius: 50%;
+
+.logo {
 	width : 230px;
 	height : 230px;
-	
+}
+
+.banniere {
+	width: 650px;
+	border-radius: 40px
+}
+
+h2 {
+	margin-left: 35%; 
 }
 
 body {
 	background-color: #8FBC8F ;
+}
+
+.connexionInscription {
+	display: flex ; 
+	justify-content: center;
+	font-family: KAGE_DEMO_FONT-Black;
+	font-size : 28pt ; 
+}
+
+.connexionSite {
+	display: flex ; 
+	justify-content: center;
+	font-family: KAGE_DEMO_FONT-Black;
+	font-size : 40pt ; 
+	color: #FAEDCA;
 }

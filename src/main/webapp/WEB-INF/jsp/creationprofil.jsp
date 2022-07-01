@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<img src="css/logoProjet.png"/>
+<img class="logo" src="css/logoProjet.png"/>
 
 <h1>Créer votre profile ici</h1>
 

@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<img src="css/logoProjet.png"/>
+<img class="logo" src="css/logoProjet.png"/>
 
 	<div>
 		<a href="">Encheres</a>
