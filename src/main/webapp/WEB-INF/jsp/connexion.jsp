@@ -5,6 +5,9 @@
 
 <%@page import="fr.eni.javaee.projet.bo.Utilisateur"%>
 
+<link href="<c:url value="/css/Projet.css" />" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<img src="css/logoProjet.png"/>
 
 	<h1>Connexion</h1>
 
