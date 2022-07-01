@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,21 +8,23 @@
 </head>
 <body>
 
-<div>
-<a href = "">Encheres</a>
-</div>
+	<div>
+		<a href="">Encheres</a>
+	</div>
 
-<div>
-<a href = "">Vendre un article</a>
-</div>
+	<div>
+		<a href="">Vendre un article</a>
+	</div>
 
-<div>
-<a href = "/Projet-ENI/profil">Mon profil</a>
-</div>
+	<div>
+		<a href="/Projet-ENI/profil">Mon profil</a>
+	</div>
 
-<div>
-<a href = "/Projet-ENI/encheres">Déconnexion</a>
-</div>
+	<form method="post"
+		action="${pageContext.request.contextPath}/deconnexionCompte">
+		<input type="submit" value="Déconnexion" />
+	</form>
+
 
 	<h1>Liste des enchères</h1>
 
@@ -49,8 +51,8 @@
 	<fieldset>
 
 		<div>
-			<input type="radio" id="Achats" name="Achats"> 
-			<label for="Achats">Achats</label>
+			<input type="radio" id="Achats" name="Achats"> <label
+				for="Achats">Achats</label>
 		</div>
 
 		<div>
@@ -64,8 +66,8 @@
 	<fieldset>
 
 		<div>
-			<input type="checkbox" id="ouvertes" name="ouvertes">
-			<label for="scales">Enchères ouvertes</label>
+			<input type="checkbox" id="ouvertes" name="ouvertes"> <label
+				for="scales">Enchères ouvertes</label>
 		</div>
 
 		<div>
@@ -84,8 +86,8 @@
 
 
 		<div>
-			<input type="checkbox" id="vEnCours" name="vEnCours">
-			<label for="scales">Mes ventes en cours</label>
+			<input type="checkbox" id="vEnCours" name="vEnCours"> <label
+				for="scales">Mes ventes en cours</label>
 		</div>
 
 		<div>

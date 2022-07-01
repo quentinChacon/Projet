@@ -1,122 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>Projet</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
-  
-  
-  <servlet>
-  
-  <servlet-name>lesobjetssontnosamis</servlet-name>
-  <jsp-file>/WEB-INF/jsp/lesobjetssontnosamis.jsp</jsp-file>
-  
-  </servlet>
-  
-  <servlet-mapping>
-  
-   <servlet-name>lesobjetssontnosamis</servlet-name>
-   <url-pattern>/encheres</url-pattern>
-  
-  </servlet-mapping>
-  
-  <servlet>
-  
-  <servlet-name>connexion</servlet-name>
-  <jsp-file>/WEB-INF/jsp/connexion.jsp</jsp-file>
-  
-  </servlet>
-  
-  <servlet-mapping>
-  
-   <servlet-name>connexion</servlet-name>
-   <url-pattern>/connexion</url-pattern>
-  
-  </servlet-mapping>
-  
-  
-  
-    <servlet>
-  
-  <servlet-name>pageaccueil</servlet-name>
-  <servlet-class>fr.eni.javaee.projet.servlet.ConnexionCompte</servlet-class>
-  
-  </servlet>
-  
-  <servlet-mapping>
-  
-   <servlet-name>pageaccueil</servlet-name>
-   <url-pattern>/accueil</url-pattern>
-  
-  </servlet-mapping>
-  
-  
-  
-  <servlet>
-  
-  <servlet-name>pagecreationcompte</servlet-name>
-  <jsp-file>/WEB-INF/jsp/creationprofil.jsp</jsp-file>
-  
-  </servlet>
-  
-  <servlet-mapping>
-  
-   <servlet-name>pagecreationcompte</servlet-name>
-   <url-pattern>/creationprofil</url-pattern>
-  
-  </servlet-mapping>
-  
-  
-  
-  
-<servlet>
-<servlet-name>modificationDuProfil</servlet-name>
-  <servlet-class>fr.eni.javaee.projet.servlet.GererSonProfil</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  
-   <servlet-name>modificationDuProfil</servlet-name>
-   <url-pattern>/profil</url-pattern>
-  
-  </servlet-mapping>
-  
-  
-  
-  <servlet>
-<servlet-name>modifprofil</servlet-name>
-  <jsp-file>/WEB-INF/jsp/modificationprofil.jsp</jsp-file>
-  
-  </servlet>
-  
-  <servlet-mapping>
-  
-   <servlet-name>modifprofil</servlet-name>
-   <url-pattern>/modificationprofil</url-pattern>
-  
-  </servlet-mapping>
-  
-  
-   <servlet>
-  
-  <servlet-name>creationdecompte</servlet-name>
-  <servlet-class>fr.eni.javaee.projet.servlet.CreationDeCompte</servlet-class>
-  
-  </servlet>
-  
-  <servlet-mapping>
-  
-   <servlet-name>creationdecompte</servlet-name>
-   <url-pattern>/creationcompteservlet</url-pattern>
-  
-  </servlet-mapping>
-  
-  
-  
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>Projet</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+	</welcome-file-list>
+
+
+	<servlet>
+
+		<servlet-name>lesobjetssontnosamis</servlet-name>
+		<jsp-file>/WEB-INF/jsp/lesobjetssontnosamis.jsp</jsp-file>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>lesobjetssontnosamis</servlet-name>
+		<url-pattern>/encheres</url-pattern>
+
+	</servlet-mapping>
+
+	<servlet>
+
+		<servlet-name>connexion</servlet-name>
+		<jsp-file>/WEB-INF/jsp/connexion.jsp</jsp-file>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>connexion</servlet-name>
+		<url-pattern>/connexion</url-pattern>
+
+	</servlet-mapping>
+
+
+
+	<servlet>
+
+		<servlet-name>pageaccueil</servlet-name>
+		<servlet-class>fr.eni.javaee.projet.servlet.ConnexionCompte</servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>pageaccueil</servlet-name>
+		<url-pattern>/accueil</url-pattern>
+
+	</servlet-mapping>
+
+
+
+	<servlet>
+
+		<servlet-name>pagecreationcompte</servlet-name>
+		<jsp-file>/WEB-INF/jsp/creationprofil.jsp</jsp-file>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>pagecreationcompte</servlet-name>
+		<url-pattern>/creationprofil</url-pattern>
+
+	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>modificationDuProfil</servlet-name>
+		<servlet-class>fr.eni.javaee.projet.servlet.GererSonProfil</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>modificationDuProfil</servlet-name>
+		<url-pattern>/profil</url-pattern>
+
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>modifprofil</servlet-name>
+		<jsp-file>/WEB-INF/jsp/modificationprofil.jsp</jsp-file>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>modifprofil</servlet-name>
+		<url-pattern>/modificationprofil</url-pattern>
+
+	</servlet-mapping>
+
+
+	<servlet>
+
+		<servlet-name>creationdecompte</servlet-name>
+		<servlet-class>fr.eni.javaee.projet.servlet.CreationDeCompte</servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>creationdecompte</servlet-name>
+		<url-pattern>/creationcompteservlet</url-pattern>
+
+	</servlet-mapping>
+
+
+
+
 </web-app>

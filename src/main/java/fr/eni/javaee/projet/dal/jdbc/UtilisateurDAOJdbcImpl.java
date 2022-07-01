@@ -15,7 +15,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	// ----------------------------------- SELECT
 	// ALL Categorie ------------------------------------
 	private static final String SQL_SELECT_ALL_UTILISATEUR = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville FROM UTILISATEURS";
-	
+
 	private ConnectionProvider provider = new ConnectionProvider();
 
 	public Utilisateur selectAllUtilisateur() {
@@ -157,7 +157,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 				ville = rs.getString("ville");
 				motDePasse = rs.getString("mot_de_passe");
 
-				utilisateurListe.add(new Utilisateur(pseudo, nom, prenom, email, telephone, rue ,codePostal, ville, motDePasse));
+				utilisateurListe.add(
+						new Utilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse));
 
 			}
 
@@ -250,257 +251,92 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	}
 
-	
-	/*
-	private static final String SQL_SELECT_UTIL = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ? ";
+//  --------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	private static final String SQL_SELECT_UTILISATEUR = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville FROM UTILISATEURS WHERE no_utilisateur = ? ";
+
+	private ConnectionProvider providerConnexion = new ConnectionProvider();
 
 	public Utilisateur donneesUtilisateur(Utilisateur pUtilisateurConnecte) {
 
 		// 1. obtenir une connexion
+		Connection cnx = providerConnexion.getConnexion();
 
-		try (Connection cnx = provider.getConnexion()) {
-			
-			
-			try {
+		// 2. Obtenir un objet de commande
+		PreparedStatement requete = null;
+		try {
+			requete = cnx.prepareStatement(SQL_SELECT_UTILISATEUR);
 
-				PreparedStatement requete = cnx.prepareStatement(SQL_SELECT_UTIL);
-
-				// PAramétrer le PreparedStatement
-
-				requete.setInt(1, pUtilisateurConnecte.getNoUtilisateur());
-
-				// Executer la requete
-				requete.executeQuery();
-
-				ResultSet rs = null;
-				try {
-					rs = requete.executeQuery(SQL_SELECT_UTIL);
-
-				} catch (SQLException sqle) {
-
-					System.err.println("Probleme lors de l'exécution de la requete.");
-					sqle.printStackTrace();
-				}
-
-				Utilisateur utilisateurTrouve = null;
-
-				try {
-
-					String pseudo;
-
-					String nom;
-
-					String prenom;
-
-					String email;
-
-					String telephone;
-
-					String rue;
-
-					String codePostal;
-
-					String ville;
-
-					// Tant qu'il y a des lignes de résultat...
-					while (rs.next()) {
-						// ... construire le nouvel article à partir desinformations de la ligne...
-
-						pseudo = rs.getString("pseudo");
-						nom = rs.getString("nom");
-						prenom = rs.getString("prenom");
-						email = rs.getString("email");
-						telephone = rs.getString("telephone");
-						rue = rs.getString("rue");
-						codePostal = rs.getString("code_postal");
-						ville = rs.getString("ville");
-
-						utilisateurTrouve = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal,
-								ville);
-
-					}
-
-					// Libérer les ressources : fermer la connexion.
-					cnx.close();
-
-				} catch (Exception sqle) {
-					// journaliser (pour faciliter le travail des exploitant
-
-					sqle.printStackTrace();
-
-					// Il y a un probleme ==> Transaction annulée
-
-					cnx.rollback();
-				}
-
-
+			requete.setInt(1, pUtilisateurConnecte.getNoUtilisateur());
 
 		} catch (SQLException sqle) {
-			
+			// TODO traitement d'exception ?
+
+			System.err.println("Probleme pour obtenir le Statement");
 			sqle.printStackTrace();
 		}
-		return pUtilisateurConnecte;
 
-	}
-} 
-	*/
-	
-	// -------------------------------------------------------------------------------------------------------------------------------------------------
-	
-	
-	
-	
-	private static final String SQL_SELECT_UTILISATEUR = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville FROM UTILISATEURS WHERE no_utilisateur = ? ";
-	
-	private ConnectionProvider providerConnexion = new ConnectionProvider();
-	
-	public Utilisateur donneesUtilisateur(Utilisateur pUtilisateurConnecte) {
-		
-	
+		// 4. Déclencher l'appel à la BdD (BdD = Base de Donnes)
+		ResultSet rs = null;
+		try {
 
-		// 1. obtenir une connexion
-				Connection cnx = providerConnexion.getConnexion();
+			rs = requete.executeQuery();
 
-				// 2. Obtenir un objet de commande
-				PreparedStatement requete = null;
-				try {
-					requete = cnx.prepareStatement(SQL_SELECT_UTILISATEUR);
-					
-					requete.setInt(1, pUtilisateurConnecte.getNoUtilisateur());
-					
-					
+		} catch (SQLException sqle) {
 
-				} catch (SQLException sqle) {
-					// TODO traitement d'exception ?
+			System.err.println("Probleme lors de l'exécution de la requete.");
+			sqle.printStackTrace();
+		}
 
-					System.err.println("Probleme pour obtenir le Statement");
-					sqle.printStackTrace();
-				}
+		// 5. Utiliser le resultat de l'appel... (soit un ResultSet, soit le nombre de
+		// lignes affectées)
+		Utilisateur utilisateurConnecte = null;
 
+		try {
 
-				// 4. Déclencher l'appel à la BdD (BdD = Base de Donnes)
-				ResultSet rs = null;
-				try {
-					
-					rs = requete.executeQuery();
+			String pseudo;
 
-				} catch (SQLException sqle) {
+			String nom;
 
-					System.err.println("Probleme lors de l'exécution de la requete.");
-					sqle.printStackTrace();
-				}
+			String prenom;
 
-				// 5. Utiliser le resultat de l'appel... (soit un ResultSet, soit le nombre de
-				// lignes affectées)
-				Utilisateur utilisateurConnecte = null;
+			String email;
 
-				try {
+			String telephone;
 
-					String pseudo;
+			String rue;
 
-					String nom;
+			String codePostal;
 
-					String prenom;
+			String ville;
 
-					String email;
+			// Tant qu'il y a des lignes de résultat...
+			while (rs.next()) {
+				// ... construire le nouvel article à partir desinformations de la ligne...
 
-					String telephone;
+				pseudo = rs.getString("pseudo");
+				nom = rs.getString("nom");
+				prenom = rs.getString("prenom");
+				email = rs.getString("email");
+				telephone = rs.getString("telephone");
+				rue = rs.getString("rue");
+				codePostal = rs.getString("code_postal");
+				ville = rs.getString("ville");
 
-					String rue;
+				utilisateurConnecte = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal, ville);
 
-					String codePostal;
+			}
 
-					String ville;
+			cnx.close();
 
-					// Tant qu'il y a des lignes de résultat...
-					while (rs.next()) {
-						// ... construire le nouvel article à partir desinformations de la ligne...
+		} catch (SQLException sqle) {
 
-						pseudo = rs.getString("pseudo");
-						nom = rs.getString("nom");
-						prenom = rs.getString("prenom");
-						email = rs.getString("email");
-						telephone = rs.getString("telephone");
-						rue = rs.getString("rue");
-						codePostal = rs.getString("code_postal");
-						ville = rs.getString("ville");
-
-						utilisateurConnecte = new Utilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal, ville);
-
-					}
-
-					cnx.close();
-
-				} catch (SQLException sqle) {
-
-					System.err.println("Probleme lors de la lecture du resultat de la requete.");
-					sqle.printStackTrace();
-				}
-			
+			System.err.println("Probleme lors de la lecture du resultat de la requete.");
+			sqle.printStackTrace();
+		}
 
 		return utilisateurConnecte;
-		
-		
-		
-		
+
 	}
-		
-		
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
-
-
