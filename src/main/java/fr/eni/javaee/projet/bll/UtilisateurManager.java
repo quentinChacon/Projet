@@ -76,5 +76,22 @@ public class UtilisateurManager {
 		return null;
 
 	}
+	
+	
+	public void supprimerUtilisateur(int numeroUtilisateur) {
+
+		// Appel de la DAL
+		this.userDAO.delete(numeroUtilisateur);
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -7,6 +7,7 @@ public interface UtilisateurDAO {
 
 	public void insert(Utilisateur user);
 	public Utilisateur donneesUtilisateur(Utilisateur user);
+	public void delete(int numeroUtilisateur);
 	
 	
 }

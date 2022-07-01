@@ -64,10 +64,9 @@ public class CreationDeCompte extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8") ;
 		
-		//appel de la BLL pour ajouter le repas
+		//appel de la BLL 
 		
 		UtilisateurManager utilisateurManager = new UtilisateurManager();
-		
 		
 		utilisateurManager.ajouterUtilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, credit);
 		

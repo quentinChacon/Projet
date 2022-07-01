@@ -2,35 +2,34 @@ package fr.eni.javaee.projet.bo;
 
 public class Utilisateur {
 
-	
-	private int noUtilisateur ;
-	
-	private String pseudo ; 
-	
-	private String nom ;
-	
-	private String prenom;
-	
-	private String email ;
-	
-	private String telephone ;
-	
-	private String rue ;
-	
-	private String codePostal ;
-	
-	private String ville ;
-	
-	private String motDePasse ; 
-	
-	private int credit ;
-	
-	private byte administrateur ;
-	
-	
+	private int noUtilisateur;
 
-	public Utilisateur( String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, String codePostal, String ville, String motDePasse, int credit) {
+	private String pseudo;
+
+	private String nom;
+
+	private String prenom;
+
+	private String email;
+
+	private String telephone;
+
+	private String rue;
+
+	private String codePostal;
+
+	private String ville;
+
+	private String motDePasse;
+
+	private int credit;
+
+	private byte administrateur;
+
+	
+	/*
+	public Utilisateur(int credit, String nom, String prenom, String email, String telephone, String rue,
+			String codePostal, String ville, String motDePasse, String pseudo) {
 		super();
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -42,12 +41,9 @@ public class Utilisateur {
 		this.ville = ville;
 		this.motDePasse = motDePasse;
 		this.credit = credit;
-	
+
 	}
-	
-
-
-
+*/
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
 			String codePostal, String ville) {
 		super();
@@ -60,8 +56,6 @@ public class Utilisateur {
 		this.codePostal = codePostal;
 		this.ville = ville;
 	}
-
-	
 
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
 			String codePostal, String ville, String motDePasse) {
@@ -77,19 +71,25 @@ public class Utilisateur {
 		this.motDePasse = motDePasse;
 	}
 
-
-
-
-	public Utilisateur () {
-		// TODO Auto-generated constructor stub
+	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+			String rue, String codePostal, String ville, String motDePasse, int credit) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+		this.credit = credit;
 	}
 
-
-
-
-
-
-
+	public Utilisateur() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Utilisateur(String pseudo, String motDePasse) {
 		super();
@@ -99,6 +99,21 @@ public class Utilisateur {
 	}
 
 
+
+	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+			String rue, String codePostal, String ville, String motDePasse) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+	}
 	
 	
 	
@@ -207,28 +222,4 @@ public class Utilisateur {
 		this.administrateur = administrateur;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

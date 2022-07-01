@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import fr.eni.javaee.projet.bo.Utilisateur;
 
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
@@ -96,7 +97,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		return utilisateurTrouve;
 	}
 
-	private static final String SQL_SELECT_CONNEXION_UTILISATEUR = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe FROM UTILISATEURS";
+	private static final String SQL_SELECT_CONNEXION_UTILISATEUR = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe FROM UTILISATEURS";
 
 	public List<Utilisateur> selectCoUtilisateur(String pUtilisateur) {
 
@@ -133,6 +134,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 		try {
 
+			int noUtilisateur;
 			String pseudo;
 			String nom;
 			String prenom;
@@ -147,6 +149,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			while (rs.next()) {
 				// ... construire le nouvel article à partir desinformations de la ligne...
 
+				noUtilisateur = rs.getInt("no_utilisateur");
 				pseudo = rs.getString("pseudo");
 				nom = rs.getString("nom");
 				prenom = rs.getString("prenom");
@@ -158,7 +161,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 				motDePasse = rs.getString("mot_de_passe");
 
 				utilisateurListe.add(
-						new Utilisateur(pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse));
+						new Utilisateur(noUtilisateur, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse));
 
 			}
 
@@ -338,5 +341,94 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		return utilisateurConnecte;
 
 	}
+	
+	
+
+//  --------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	private static final String SQL_DELETE_UTILISATEUR = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ? ";
+
+	private ConnectionProvider providerCo = new ConnectionProvider();
+
+	public void delete(int numeroUtilisateur) {
+
+		// 1. obtenir une connexion
+		Connection cnx = providerCo.getConnexion();
+
+		// 2. Obtenir un objet de commande
+		PreparedStatement requete = null;
+		try {
+			requete = cnx.prepareStatement(SQL_DELETE_UTILISATEUR);
+
+			requete.setInt(1, numeroUtilisateur);
+
+		} catch (SQLException sqle) {
+			// TODO traitement d'exception ?
+
+			System.err.println("Probleme pour obtenir le Statement");
+			sqle.printStackTrace();
+		}
+
+		// 4. Déclencher l'appel à la BdD (BdD = Base de Donnes)
+		try {
+
+			requete.executeUpdate();
+
+		} catch (SQLException sqle) {
+
+			System.err.println("Probleme lors de l'exécution de la requete.");
+			sqle.printStackTrace();
+		}
+
+			try {
+				cnx.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
