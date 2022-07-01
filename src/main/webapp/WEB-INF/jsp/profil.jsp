@@ -36,7 +36,7 @@ Rue : ${profilutilisateur.rue}
 Code Postal : ${profilutilisateur.codePostal} 
 <br>
 Ville : ${profilutilisateur.ville} 
-</div>
+
 
 <div>
 <button onclick= "window.location.href ='/Projet-ENI/modificationprofil'">
