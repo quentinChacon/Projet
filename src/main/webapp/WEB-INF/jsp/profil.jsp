@@ -3,6 +3,8 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@page import="fr.eni.javaee.projet.bo.Utilisateur"%>    
+<link href="<c:url value="/css/Projet.css" />" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
 
 <!DOCTYPE html>
@@ -14,7 +16,7 @@
 <body>
 <h1>Mon profil :</h1>
 
-
+<a href="/Projet-ENI/accueil"><img src="css/logoAppli.png"/></a>
 
 <div>
 Pseudo : ${profilutilisateur.pseudo}
